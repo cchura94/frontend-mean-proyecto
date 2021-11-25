@@ -1,0 +1,24 @@
+generando modulos y componentes
+
+1. componente inicio
+ng g c inicio
+
+2. modulo producto
+ng g m producto
+
+3. modulo ruta para producto
+ng g m producto/producto-routing --flat
+
+4. modulo auth + modulo de rutas
+ng g m auth --routing
+
+5. generando el componente producto en el modulo producto
+ng g c producto/components/producto
+ng g c producto/components/producto-detalle
+
+5. generando el componente login y registro en el modulo producto
+ng g c auth/components/login
+ng g c auth/components/registro
+
+6. generando el componente layout
+ng g c layout
