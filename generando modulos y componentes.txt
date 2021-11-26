@@ -22,3 +22,6 @@ ng g c auth/components/registro
 
 6. generando el componente layout
 ng g c layout
+
+7. creando un service 
+ng g s auth/components/login/login
