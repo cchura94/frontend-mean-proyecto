@@ -1,5 +1,20 @@
-<a routerLink="/">INICIO</a> |
-<a routerLink="/productos">NUESTROS PRODUCTOS</a> |
-<a routerLink="/auth/login">LOGIN</a>
+<mat-toolbar  color="primary">
+    
+    <span>ventas.com</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon" routerLink="/">
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" routerLink="/productos">
+      <mat-icon>store</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" routerLink="/productos">
+      <mat-icon>sadau</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" routerLink="/auth/login">
+      <mat-icon>login</mat-icon>
+    </button>
+</mat-toolbar>
+
 
 <router-outlet></router-outlet>

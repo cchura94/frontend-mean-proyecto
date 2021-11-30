@@ -7,6 +7,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { LoginService } from './components/login/login.service';
+import { MaterialModule } from './../material/material.module'
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LoginService } from './components/login/login.service';
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
   ],
   providers: [LoginService]
 })

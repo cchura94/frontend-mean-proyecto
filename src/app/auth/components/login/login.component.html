@@ -1,10 +1,19 @@
 <h1>Ingresar</h1>
 <form [formGroup]="loginForm">
-    <input type="email" formControlName="email">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ingrese Correo</mat-label>
+        <input type="email" matInput formControlName="email"
+               placeholder="Ex. pat@example.com">
+        <mat-hint>Ej. pat@example.com</mat-hint>        
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" matInput formControlName="password"
+               placeholder="******">      
+    </mat-form-field>
     <br>
-    <input type="password" formControlName="password">
-    <br>
-    <button [disabled]="!loginForm.valid" (click)="ingresar()">INGRESAR</button>
+    <button [disabled]="!loginForm.valid" (click)="ingresar()" mat-raised-button color="primary">INGRESAR</button>
 </form>
 
 <hr>
