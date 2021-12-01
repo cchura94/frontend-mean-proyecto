@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { LayoutComponent } from './layout/layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module'
+import { MaterialModule } from './material/material.module';
+import { Error404Component } from './errors/error404/error404.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
-    LayoutComponent
+    LayoutComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
