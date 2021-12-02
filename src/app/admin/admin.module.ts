@@ -9,10 +9,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { MaterialModule } from '../material/material.module';
+import { ProductoComponent } from './components/producto/producto.component';
+import { ProductoNuevoComponent } from './components/producto/producto-nuevo/producto-nuevo.component';
 
 
 @NgModule({
-  declarations: [NavComponent, DashboardComponent, CategoriaComponent],
+  declarations: [NavComponent, DashboardComponent, CategoriaComponent, ProductoComponent, ProductoNuevoComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
