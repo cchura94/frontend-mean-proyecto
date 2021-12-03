@@ -33,8 +33,13 @@ export class ProductoComponent implements OnInit {
   }
 
   openDialogNuevoProducto(){
-    this.dialog.open(ProductoNuevoComponent,{
+    const dialogRef = this.dialog.open(ProductoNuevoComponent,{
       width: '600px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.listaProductos();
     });
   }
 

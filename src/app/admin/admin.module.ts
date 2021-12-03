@@ -11,6 +11,7 @@ import { CategoriaComponent } from './components/categoria/categoria.component';
 import { MaterialModule } from '../material/material.module';
 import { ProductoComponent } from './components/producto/producto.component';
 import { ProductoNuevoComponent } from './components/producto/producto-nuevo/producto-nuevo.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ProductoNuevoComponent } from './components/producto/producto-nuevo/pro
     CommonModule,
     AdminRoutingModule,
     LayoutModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }
