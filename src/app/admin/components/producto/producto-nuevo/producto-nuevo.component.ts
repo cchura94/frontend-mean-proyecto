@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Producto } from 'src/app/core/interfaces/producto';
 import { ProductoService } from 'src/app/core/services/producto.service';
 
 @Component({
@@ -15,15 +16,16 @@ export class ProductoNuevoComponent implements OnInit {
   imgPreview?:string
 
   productoForm = new FormGroup({
-    nombre: new FormControl('', [Validators.required]),
-    precio: new FormControl('', Validators.required),
-    stock: new FormControl('', Validators.required),
-    descripcion: new FormControl(''),
-    imagen: new FormControl('')
+    nombre: new FormControl(this.data.nombre, [Validators.required]),
+    precio: new FormControl(this.data.precio, Validators.required),
+    stock: new FormControl(this.data.stock, Validators.required),
+    descripcion: new FormControl(this.data.descripcion),
+    imagen: new FormControl(this.data.imagen)
   });
 
   constructor(private productoService:ProductoService,
-    public dialogRef: MatDialogRef<ProductoNuevoComponent>) { }
+    public dialogRef: MatDialogRef<ProductoNuevoComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
   }
@@ -46,6 +48,18 @@ export class ProductoNuevoComponent implements OnInit {
 
   guardarProducto(){
     this.productoService.guardarProducto(this.productoForm).subscribe(
+      (res:any) => {
+        console.log(res)
+        this.onNoClick()
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
+  modificarProducto(id:string){
+    this.productoService.editarProducto(this.productoForm, id).subscribe(
       (res:any) => {
         console.log(res)
         this.onNoClick()

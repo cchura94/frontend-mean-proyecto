@@ -12,10 +12,11 @@ import { MaterialModule } from '../material/material.module';
 import { ProductoComponent } from './components/producto/producto.component';
 import { ProductoNuevoComponent } from './components/producto/producto-nuevo/producto-nuevo.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PedidoComponent } from './components/pedido/pedido.component';
 
 
 @NgModule({
-  declarations: [NavComponent, DashboardComponent, CategoriaComponent, ProductoComponent, ProductoNuevoComponent],
+  declarations: [NavComponent, DashboardComponent, CategoriaComponent, ProductoComponent, ProductoNuevoComponent, PedidoComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

@@ -29,4 +29,17 @@ export class ProductoService {
     
     return this.http.post(`${this.url_base}/producto`, formData)
   }
+
+  editarProducto(datos: FormGroup, id:string){
+    const formData:FormData = new FormData();
+    formData.append('nombre', datos.value.nombre);
+    formData.append('precio', datos.value.precio+"");
+    formData.append('stock', datos.value.stock+"");
+    formData.append('descripcion', datos.value.descripcion);
+    formData.append("imagen", datos.get('imagen')?.value)
+    
+
+    
+    return this.http.put(`${this.url_base}/producto/${id}`, formData)
+  }
 }

@@ -2,3 +2,8 @@
     width: 100%;
     min-width: 300px;
 }
+.caja{
+    width: 47%;
+    float: left;
+    margin: 3px;
+}

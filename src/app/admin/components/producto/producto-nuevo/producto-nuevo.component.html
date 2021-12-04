@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Nuevo Producto</h1>
+<h1 mat-dialog-title>{{ (data.editar)?'Editar Producto':'Nuevo Producto' }}</h1>
 <mat-dialog-content>
     <form [formGroup]="productoForm">
         <mat-form-field>
@@ -22,12 +22,24 @@
             <input type="file" #imagenInput hidden="true" id="img" (change)="imagenInputSeleccionado($event)" accept="image/png, image/gif, image/jpg, image/jpeg">
             <button type="button" mat-flat-button color="primary" (click)="imagenInput.click()">Cargar Imagen</button>
         </mat-toolbar>
-        <img [src]="imgPreview" alt="" width="100%">
+        <div class="fila">
+            <div class="{{(imgPreview)?'caja':''}}" *ngIf="data.imagen">
+                <h3>Imagen Actual</h3>
+                <img src="http://127.0.0.1:3000/imagenes/{{data.imagen}}" width="100%" alt="">
+            </div>
+            <div class="{{(data.imagen)?'caja':''}}" *ngIf="imgPreview">
+                <h3>Nueva Imagen</h3>
+                <img [src]="imgPreview" alt="" width="100%">
+            </div>
+        </div>
+        
 
     </form>
 </mat-dialog-content>
 
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">Cancelar</button>
-    <button mat-button mat-raised-button color="primary" (click)="guardarProducto()">Guardar Producto</button>
+
+    <button *ngIf="!data.editar" mat-button mat-raised-button color="primary" (click)="guardarProducto()">Guardar Producto</button>
+    <button *ngIf="data.editar" mat-button mat-raised-button color="primary" (click)="modificarProducto(data._id)">Modificar Producto</button>
 </div>

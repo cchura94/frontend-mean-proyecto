@@ -13,6 +13,13 @@ export class ProductoComponent implements OnInit {
 
   displayedColumns: string[] = ['nombre', 'precio', 'stock', 'imagen', 'acciones'];
   dataSource:Producto[] = []
+  prod:Producto = {
+    nombre: '',
+    precio: 0,
+    stock: 0,
+    descripcion: '',
+    imagen:''
+  }
 
   constructor(private productoService: ProductoService, public dialog: MatDialog) { }
 
@@ -34,7 +41,22 @@ export class ProductoComponent implements OnInit {
 
   openDialogNuevoProducto(){
     const dialogRef = this.dialog.open(ProductoNuevoComponent,{
-      width: '600px'
+      width: '600px',
+      data: this.prod
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.listaProductos();
+    });
+  }
+
+  openDialogEditarProducto(producto: any){
+    console.log(producto)
+    producto.editar = true
+    const dialogRef = this.dialog.open(ProductoNuevoComponent,{
+      width: '600px',
+      data: producto
     });
 
     dialogRef.afterClosed().subscribe(result => {
